@@ -23,6 +23,22 @@ The Wagner-Fisher algorithm uses the following recurrence relation:
   \end{array}
 \right. \]
 
+D[i][j]=min 
+⎩
+⎨
+⎧
+​
+  
+D[i−1][j]+1
+D[i][j−1]+1
+D[i−1][j−1]+cost(A[i],B[j])
+​
+  
+(deletion)
+(insertion)
+(substitution)
+​
+
 The cost function \(\text{cost}(A[i], B[j])\) is 0 if \(A[i] = B[j]\) (no substitution needed) and 1 otherwise.
 
 This recurrence relation is computed for each cell in the matrix, and the minimum edit distance is found in the bottom-right cell. Backtracking through the matrix provides the sequence of edit operations needed for the transformation.
