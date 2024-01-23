@@ -14,30 +14,9 @@ In the context of spelling check:
 Let's denote the two words as `A` and `B`. The matrix `D` is used to represent the edit distance between substrings of `A` and `B`, where `D[i][j]` is the edit distance between the first `i` characters of `A` and the first `j` characters of `B`.
 
 The Wagner-Fisher algorithm uses the following recurrence relation:
-
-\[ D[i][j] = \min \left\{
-  \begin{array}{ll}
-    D[i-1][j] + 1 & \text{(deletion)} \\
-    D[i][j-1] + 1 & \text{(insertion)} \\
-    D[i-1][j-1] + \text{cost}(A[i], B[j]) & \text{(substitution)}
-  \end{array}
-\right. \]
-
-D[i][j]=min 
-⎩
-⎨
-⎧
-​
-  
-D[i−1][j]+1
-D[i][j−1]+1
-D[i−1][j−1]+cost(A[i],B[j])
-​
-  
-(deletion)
-(insertion)
-(substitution)
-​
+              |D[i−1][j]+1                        (deletion)
+D[i][j]= min  |D[i][j−1]+1                        (insertion)
+              |D[i−1][j−1]+cost(A[i],B[j])        (substitution)​
 
 The cost function \(\text{cost}(A[i], B[j])\) is 0 if \(A[i] = B[j]\) (no substitution needed) and 1 otherwise.
 
